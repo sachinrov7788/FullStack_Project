@@ -1,0 +1,58 @@
+<div class="sidebar-logo">
+    <div class="welcometxt"><b>{{title}}</b></div>
+    <button class="logoutbtn" (click)="navigateHome()"><i class="fa fa-home"></i> Home</button>
+    <b class="sidebar-text"><i class="fa fa-user"></i> Welcome {{loggedUser}}</b>
+    <button class="logoutbtn" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</button>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Overall Request History</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Identity</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Age</th>
+                    <th>Disease</th>
+                    <th>Required Units</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let history of requests">
+                    <td>
+                        <img *ngIf="history.gender === 'Male' || history.gender === 'male'" class="bloodimg"
+                            [src]="'assets/img/male.png'" width="80" height="80">
+                        <img *ngIf="history.gender === 'Female' || history.gender === 'female'" class="bloodimg"
+                            [src]="'assets/img/female.png'" width="80" height="80">
+                    </td>
+                    <td>{{history.name}}</td>
+                    <td>{{history.mobileNumber}}</td>
+                    <td>{{history.gender}}</td>
+                    <td class="blood-grp">{{history.bloodGroup}}</td>
+                    <td>{{history.age}} years</td>
+                    <td class="disease">{{history.disease}}</td>
+                    <td>{{history.units}} units</td>
+                    <td>
+                        <div *ngIf="loggedUser === 'sachinadmin@gmail.com' && history.status === ''">
+                            <button (click)="acceptRequest(history.id)" class="accept-btn">Accept</button>
+                            <button (click)="rejectRequest(history.id)" class="reject-btn">Reject</button>
+                        </div>
+                        <div *ngIf="loggedUser === 'sachinadmin@gmail.com'">
+                            <div *ngIf="history.status === 'Accepted'" class="accepted">Accepted</div>
+                            <div *ngIf="history.status === 'Rejected'" class="rejected">Rejected</div>
+                            <div *ngIf="history.status === 'pending'" class="pending">Pending</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-footer></app-footer>

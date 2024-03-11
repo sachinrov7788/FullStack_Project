@@ -1,0 +1,89 @@
+<div class="sidebar-logo">
+    <div class="welcometxt"><b>User Dashboard</b></div>
+    <b class="sidebar-text"><i class="fa fa-user"></i> Welcome {{loggedUser}}</b>
+    <button class="logoutbtn" (click)="logout()" type="button"><i class="fa fa-logout" aria-hidden="true"></i>Logout</button>
+
+</div>
+
+<div class="sidebar-container">
+    <ul class="sidebar-navigation">
+        <li>
+            <i class="fa fa-plus" aria-hidden="true"></i> <label [routerLink]="['/requestblood']"
+                style="cursor: pointer;">Make Request</label>
+        </li>
+        <li>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i> <label [routerLink]="['/requesthistoryfromuser']"
+                style="cursor: pointer;">Request History</label>
+        </li>
+        <li>
+            <i class="fa fa-heart" aria-hidden="true"></i> <label [routerLink]="['/userasdonor']"
+                style="cursor: pointer;">Donate Blood</label>
+        </li>
+        <li>
+            <i class="fa fa-list" aria-hidden="true"></i> <label [routerLink]="['/donorlist']"
+                style="cursor: pointer;">Available Donors</label>
+        </li>
+        <li>
+            <i class="fa fa-user" aria-hidden="true"></i> <label [routerLink]="['/userprofile']"
+                style="cursor: pointer;">Edit Profile</label>
+        </li>
+        <li>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i> <label [routerLink]="['/bloodStock']"
+                style="cursor: pointer;">Blood stock</label>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="welcome-userdash"><b>Welcome to User
+            Dashboard</b>
+    </div>
+    <div class="card bg-light" id="bloodCards">
+        <div class="card-body text-left">
+            <div class="heading">Total Donors <i class="fa fa-users"></i></div>
+            <div class="heading-colour">
+                {{totalDonors.length}} donors
+            </div>
+        </div>
+    </div>
+    <div class="card bg-light" id="bloodCards">
+        <div class="card-body text-left">
+            <div class="heading">Your Total Requests <i class="fa fa-paper-plane"></i></div>
+            <div class="heading-colour">
+                {{bloodRequests.length}} requests</div>
+        </div>
+    </div>
+    <div class="card bg-light" id="bloodCards">
+        <div class="card-body text-left">
+            <div class="heading">Your Blood Donations <i class="fa fa-plus"></i></div>
+            <div class="heading-colour">
+                {{donationCount.length}} times</div>
+        </div>
+    </div>
+    <div class="card bg-light" id="bloodCards">
+        <div class="card-body text-left">
+            <div class="heading">Total Registered Users <i class="fa fa-user"></i></div>
+            <div class="heading-colour">
+                {{totalUsers.length}} users</div>
+        </div>
+    </div>
+    <div class="card bg-light" id="bloodCards">
+        <div class="card-body text-left">
+            <div class="heading">Total Blood Groups <i class="fa fa-list"></i></div>
+            <div class="heading-colour">
+                {{totalBloodGroups.length}} blood groups</div>
+        </div>
+    </div>
+    <div class="card bg-light" id="bloodCards">
+        <div class="card-body text-left">
+            <div class="heading">Total Available Units <i class="fa fa-shopping-cart"></i></div>
+            <div class="heading-colour">
+                {{totalUnits}} units of blood (in ml)</div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div class="user-footer">
+<app-footer></app-footer>
+</div>

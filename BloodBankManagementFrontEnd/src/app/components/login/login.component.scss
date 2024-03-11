@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+
+.container {
+    max-width: 450px;
+    padding: 40px;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 35px 8px rgb(147, 158, 147);
+    border-top: 8px solid rgb(235, 255, 55);
+    background-color: white;
+}
+
+input {
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+.remember{
+    color: gray;
+}
+
+.checkbox{
+    margin-top: 5px;
+}
+
+.sign-up{
+    text-align: center;
+    margin-top: 10px; 
+}
+
+.admin-forgot-pass{
+    color: navy;
+    margin-left: 69%;
+    cursor: pointer;
+}
+
+#click-here{
+    color: navy;
+    text-align: center;
+    cursor: pointer;
+}
+
+#forget-pass{
+    color: navy;
+    margin-left: 35%;
+    cursor: pointer;
+}
+
+.suggession{
+    color: gray;
+    font-size: 10px;
+}
+
+.textual {
+    color: rgb(64, 85, 15);
+    text-align: center;
+    margin-top: -20px;
+    font-family: 'Oswald', sans-serif;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.loginbtn {
+    background-color: transparent;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-bottom: 7px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.loginbtn:hover {
+    background-color: rgb(23, 78, 78);
+    padding-left: 7%;
+    padding-right: 7%;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+.fa-google {
+    background: conic-gradient(from 45deg, #ea4335 30deg, #4285f4 30deg 180deg, #34a853 80deg 270deg, #fbbc05 70deg) 3% 5%/150% 130% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    font-size: large;
+}
+
+.fa-linkedin {
+    background: #0e76a8;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    font-size: large;
+
+}
+
+.fa-windows {
+    background: conic-gradient(from 90deg, #F65314 50deg, #7CBB00 90deg 180deg, #FFBB00 90deg 70deg, #00A1F1 70deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    font-size: large;
+
+}
+
+.fa-twitter {
+    background-color: #1DA1F2;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    font-size: large;
+
+}
+
+.fa-github {
+    background-color: #333;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    font-size: large;
+
+}
+
+.fa-google:hover,
+.fa-linkedin:hover,
+.fa-windows:hover,
+.fa-github:hover,
+.fa-twitter:hover {
+    font-size: 2em;
+}
+
+.fa-google,
+.fa-linkedin,
+.fa-windows,
+.fa-twitter,
+.fa-github {
+    padding-left: 15px; /* Adjust the value as needed */
+}

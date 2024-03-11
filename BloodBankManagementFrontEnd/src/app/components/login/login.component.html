@@ -1,0 +1,89 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="user-login-form" *ngIf="!isAdminLogin">
+            <h2 class="textual">User Login</h2>
+            <form #userloginform="ngForm" (ngSubmit)="loginUser()">
+                <small class="text-danger"><b>{{msg}}</b></small>
+                <div class="form-group">
+                    <label for="email"> Email address: <b class="text-danger">*</b></label>
+                    <input type="email" class="form-control" placeholder="enter email" name="email"
+                        [(ngModel)]="login.email" required #email="ngModel"
+                        [class.is-invalid]="email.invalid && email.touched">
+                    <div *ngIf="email.errors && email.invalid && email.touched">
+                        <small class="text-danger" *ngIf="email.errors['required']"><b>required field</b></small>
+                        <small class="text-danger" *ngIf="email.errors['pattern']"><b>Invalid email Id</b></small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pwd" style="margin-top: 5px;">Password: <b class="text-danger">*</b></label>
+                    <input type="password" class="form-control" placeholder="enter password" name="pwd"
+                        [(ngModel)]="login.password" required #password="ngModel"
+                        [class.is-invalid]="password.invalid && password.touched">
+                    <div *ngIf="password.errors && password.invalid && password.touched">
+                        <small class="text-danger" *ngIf="password.errors['required']"><b>required field</b></small>
+                    </div>
+                    <small class="suggession">atleast one uppercase, numeric digit, lowercase,
+                        special character, length of 6-20</small>
+                </div>
+
+                <div class="checkbox">
+                    <small id="remember"><input type="checkbox" name="remember"> Remember me</small>
+                    <small id="forget-pass">forgot password?</small>
+                </div>
+                <button [disabled]="userloginform.form.invalid" type="submit" class="btn loginbtn">Login</button>
+            </form>
+            <div class="sign-up">Don't have an Account? <small [routerLink]="['/registration']"><b
+                        id="click-here">Create
+                        One</b></small>
+            </div>
+            <div class="sign-up" style=" text-align: center; margin-top: 10px;">Are you an admin? <small
+                    class="userlogin" (click)="toggleAdminLogin()"><b id="click-here">click
+                        here</b></small></div>
+            <hr>
+            <p class="text-center mt-3"><b> or Login with </b></p>
+            <div class="text-center">
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-windows"></i>
+                <i class="fa-brands fa-github"></i>
+            </div>
+        </div>
+
+        <div class="admin-login-form" *ngIf="isAdminLogin">
+            <h2 class="textual">Admin Login</h2>
+            <form #adminloginform="ngForm" (ngSubmit)="adminLogin()">
+                <small class="text-danger"><b>{{msg}}</b></small>
+                <div class="form-group">
+                    <label for="email"> Admin Email address: <b class="text-danger">*</b></label>
+                    <input type="email" class="form-control" placeholder="enter admin email" name="email"
+                        [(ngModel)]="login.email" #adminemail="ngModel"
+                        [class.is-invalid]="adminemail.invalid && adminemail.touched">
+                    <div *ngIf="adminemail.errors && adminemail.invalid && adminemail.touched">
+                        <small class="text-danger" *ngIf="adminemail.errors['required']"><b>required field</b></small>
+                        <small class="text-danger" *ngIf="adminemail.errors['pattern']"><b>Invalid email Id</b></small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pwd" style="margin-top: 5px;">Admin Password: <b class="text-danger">*</b></label>
+                    <input type="password" class="form-control" placeholder="enter admin password" name="pwd"
+                        [(ngModel)]="login.password" required #adminpassword="ngModel"
+                        [class.is-invalid]="adminpassword.invalid && adminpassword.touched">
+                    <div *ngIf="adminpassword.errors && adminpassword.invalid && adminpassword.touched">
+                        <small class="text-danger" *ngIf="adminpassword.errors['required']"><b>required
+                                field</b></small>
+                    </div>
+                    <small class="suggession">Only the admin knows his correct email address &
+                        password</small>
+                </div>
+
+                <small class="admin-forgot-pass">forgot password?</small>
+                <button [disabled]="adminloginform.form.invalid" type="submit" class="btn loginbtn">Login</button>
+                <div class="sign-up">Are you a User? <small class="sign-up" (click)="toggleUserLogin()"><b id="click-here">click
+                            here</b></small></div>
+            </form>
+        </div>
+    </div>
+</div>

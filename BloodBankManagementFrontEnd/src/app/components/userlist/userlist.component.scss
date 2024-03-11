@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+
+.sidebar-text {
+    font-size: small;
+    color: whitesmoke;
+}
+
+.sidebar-logo {
+    padding: 30px 15px 10px 30px;
+    font-size: 20px;
+    text-align: right;
+    background-color: #13534e;
+    width: 100%;
+}
+
+.welcometxt{
+    float: left;
+    color: whitesmoke;
+} 
+
+.element-1{
+    margin-left: 53px;
+}
+
+.element-2{
+    color: red;
+    font-size: larger;
+    margin-left: 35px;
+}
+
+.element-3{
+    margin-left: 12px;
+}
+
+.element-4{
+    margin-left: 80px;
+}
+
+.element-5{
+    margin-left: 78px;
+}
+
+.element-6{
+    margin-left: 110px;
+}
+
+#heading{
+    color: navy;
+    padding-left: 10px;
+}
+
+.logoutbtn {
+    border: none;
+    background: transparent;
+    color: white;
+    border-radius: 15px;
+    margin-left: 1px;
+    margin-right: 1%;
+    padding: 5px 10px 5px 10px;
+    font-size: small;
+}
+
+.logoutbtn:hover {
+    cursor: pointer;
+    background-color: #23ad9b;
+    padding: 5px 8px 5px 8px;
+    border-radius: 15px;
+}
+
+.row {
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+#bloodCards {
+    margin-right: 5%;
+    margin-bottom: 4%;
+    width: 40%;
+    transition: transform .2s;
+    box-shadow: 5px 5px 25px 8px rgb(147, 158, 147);
+}
+
+#bloodCards:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.bloodimg {
+    float: right;
+}
+
+.card-block {
+    margin-top: -25%;
+    margin-bottom: 2%;
+    padding-top: 12px;
+}
+
+.text {
+    font-family: serif;
+    font-size: larger;
+    font-weight: bolder;
+}
