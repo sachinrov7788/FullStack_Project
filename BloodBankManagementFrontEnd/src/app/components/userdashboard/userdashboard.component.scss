@@ -18,16 +18,32 @@
     color: whitesmoke;
 }
 
-.user-footer {
-    bottom: 0;
-    width: 100%;
-    position: fixed;
-}
-
 .sidebar-text {
     font-size: small;
     color: whitesmoke;
     margin-left: 70%;
+}
+
+.logoutbtn {
+    border: none;
+    background: transparent;
+    color: white;
+    border-radius: 15px;
+    font-size: small;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.logoutbtn:hover{
+    background-color: #23ad9b;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 20px;
+}
+
+.user-footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
 }
 
 .content-container {
@@ -121,18 +137,18 @@
     background: transparent;
     color: white;
     border-radius: 15px;
-    padding: 2px 10px 5px 10px;
     font-size: small;
     float: right;
-
+    margin-bottom: 20px;
 }
 
-.logoutbtn:hover {
-    cursor: pointer;
+.logoutbtn:hover{
     background-color: #23ad9b;
-    padding: 3px 5px 3px 5px;
-    border-radius: 15px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 20px;
 }
+
+
 
 .container {
     max-width: 550px;

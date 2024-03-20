@@ -12,7 +12,7 @@
 
         <div class="form-group">
             <label for="donorname">Name: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter your name" name="donorname"
+            <input type="text" class="form-control" placeholder="Enter Your Name" name="donorname"
                 [(ngModel)]="donor.name" required #donorname="ngModel"
                 [class.is-invalid]="donorname.invalid && donorname.touched">
             <small class="text-danger" [class.d-none]="donorname.valid || donorname.untouched"><b>required
@@ -22,9 +22,18 @@
 
         <div class="form-group">
             <label for="bloodgroup">Blood Group: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter blood group" name="bloodgroup"
+            <select type="text" class="form-control" placeholder="Enter Blood Group" name="bloodgroup"
                 [(ngModel)]="donor.bloodGroup" required #bloodgroup="ngModel"
                 [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched">
+                <option selected>O+ve</option>
+                <option>O-ve</option>
+                <option>A+ve</option>
+                <option>A-ve</option>
+                <option>B+ve</option>
+                <option>B-ve</option>
+                <option>AB+ve</option>
+                <option>AB-ve</option>
+            </select>
             <small class="text-danger" [class.d-none]="bloodgroup.valid || bloodgroup.untouched"><b>required
                     field</b></small>
         </div>
@@ -44,7 +53,7 @@
 
         <div class="form-group">
             <label for="mobile">Mobile Number: <b class="text-danger">*</b></label>
-            <input type="tel" class="form-control" placeholder="enter mobile number" name="mobile"
+            <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="mobile"
                 [(ngModel)]="donor.mobileNumber" required #mobile="ngModel"
                 [class.is-invalid]="mobile.invalid && mobile.touched">
             <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched"><b>required field</b></small>
@@ -62,7 +71,7 @@
 
         <div class="form-group">
             <label for="age">Age: <b class="text-danger">*</b></label>
-            <input type="number" min="0" max="65" class="form-control" placeholder="enter your age" name="age"
+            <input type="number" min="0" max="65" class="form-control" name="age"
                 [(ngModel)]="donor.age" required #age="ngModel" [class.is-invalid]="age.invalid && age.touched">
             <small class="text-danger" [class.d-none]="age.valid || age.untouched"><b>required field</b></small>
         </div>
@@ -71,7 +80,7 @@
 
         <div class="form-group">
             <label for="city">Location: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter city" name="city" [(ngModel)]="donor.city"
+            <input type="text" class="form-control" placeholder="Enter Your City" name="city" [(ngModel)]="donor.city"
                 required #city="ngModel" [class.is-invalid]="city.invalid && city.touched">
             <small class="text-danger" [class.d-none]="city.valid || city.untouched"><b>required field</b></small>
         </div>
@@ -79,7 +88,7 @@
 
         <div class="form-group">
             <label for="address">Address: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter your address" name="address"
+            <input type="text" class="form-control" placeholder="Enter Your Address" name="address"
                 [(ngModel)]="donor.address" required #address="ngModel"
                 [class.is-invalid]="address.invalid && address.touched">
             <small class="text-danger" [class.d-none]="address.valid || address.untouched"><b>required field</b></small>
@@ -88,7 +97,7 @@
 
         <div class="form-group">
             <label for="date">Date of Donation: <b class="text-danger">*</b></label>
-            <input type="date" class="form-control" placeholder="enter donating date" id="date" name="date"
+            <input type="date" class="form-control" id="date" name="date"
                 [(ngModel)]="donor.date" required #date="ngModel" [class.is-invalid]="date.invalid && date.touched">
         </div>
         <small class="suggesstion">By default, today's date will be selected</small>
@@ -96,7 +105,7 @@
         <div class="checkbox">
             <small class="checkbox-1"><input type="checkbox" name="remember" required> Are you interested to donate
                 blood </small><br>
-            <small> (adding you as a donor without your interest is
+            <small> (Adding you as a donor without your interest is
                 against our Terms and Conditions !!!)</small>
         </div>
         <button style="margin-top: 15px;" [disabled]="addDonorform.form.invalid" type="submit"

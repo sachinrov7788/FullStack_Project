@@ -1,10 +1,12 @@
+<div class="flex-container">
 <div class="container">
+    <h2 class="title">Blood Bank Management</h2>
     <h3 class="textual">New User</h3>
     <form #Registerform="ngForm" (ngSubmit)="registerUser()">
         <small class="text-danger"><b>{{msg}}</b></small>
         <div class="form-group">
             <label for="email">Email Address: <b class="text-danger">*</b></label>
-            <input type="email" class="form-control" placeholder="enter email" name="email" [(ngModel)]="register.email" #email="ngModel"
+            <input type="email" class="form-control" placeholder="rohit@gmail.com" name="email" [(ngModel)]="register.email" #email="ngModel"
                 [class.is-invalid]="email.invalid && email.touched">
             <div *ngIf="email.errors && (email.invalid && email.touched)">
                 <small class="text-danger" *ngIf="email.errors['required']"><b>required field</b></small>
@@ -14,8 +16,8 @@
         </div>
 
         <div class="form-group">
-            <label for="username">UserName: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter username" name="username"
+            <label for="username">Username: <b class="text-danger">*</b></label>
+            <input type="text" class="form-control" placeholder="Rohit" name="username"
                 [(ngModel)]="register.name" required #username="ngModel"
                 [class.is-invalid]="username.invalid && username.touched">
             <small class="text-danger" [class.d-none]="username.valid || username.untouched"><b>required
@@ -25,7 +27,7 @@
 
         <div class="form-group">
             <label for="bloodgroup">Blood Group: <b class="text-danger">*</b></label>
-            <select type="text" class="form-control" placeholder="enter blood group" name="bloodgroup"
+            <select type="text" class="form-control" name="bloodgroup"
                 [(ngModel)]="register.bloodGroup" required #bloodgroup="ngModel"
                 [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched">
                 <option selected>O+ve</option>
@@ -53,14 +55,14 @@
 
         <div class="form-group">
             <label for="age">Age: <b class="text-danger">*</b></label>
-            <input type="number" class="form-control" placeholder="enter your age" name="age" [(ngModel)]="register.age"
+            <input type="number" class="form-control" placeholder="Enter your age" name="age" [(ngModel)]="register.age"
                 required #age="ngModel" [class.is-invalid]="age.invalid && age.touched">
             <small class="text-danger" [class.d-none]="age.valid || age.untouched"><b>required field</b></small>
         </div>
 
         <div class="form-group">
             <label for="mobile">Mobile Number: <b class="text-danger">*</b></label>
-            <input type="tel" class="form-control" placeholder="enter mobile number" name="mobile"
+            <input type="tel" class="form-control" placeholder="+91***** *****" name="mobile"
                 [(ngModel)]="register.mobileNumber" required #mobile="ngModel"
                 [class.is-invalid]="mobile.invalid && mobile.touched">
             <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched"><b>required field</b></small>
@@ -70,22 +72,21 @@
 
         <div class="form-group">
             <label for="pwd">Password: <b class="text-danger">*</b></label>
-            <input type="password" class="form-control" placeholder="enter password" name="pwd"
+            <input type="password" class="form-control" placeholder="********" name="pwd"
                 [(ngModel)]="register.password" required #password="ngModel"
                 [class.is-invalid]="password.invalid && password.touched">
             <div *ngIf="password.errors && password.invalid && password.touched">
                 <small class="text-danger" *ngIf="password.errors['required']"><b>required field</b></small>
             </div>
-            <small class="suggestion">atleast one uppercase, numeric digit, lowercase, special
+            <small class="suggestion">Atleast one uppercase, numeric digit, lowercase, special
                 character, length of 6-20</small>
-        </div>
-        <div class="checkbox">
-            <small class="acceptance"><input type="checkbox" name="remember"> I agree all Terms & conditions</small>
         </div>
         <button [disabled]="Registerform.form.invalid" type="submit" class="btn registerbtn">Register</button>
     </form>
     <div class="sign-up">Already have an Account? <small class="login-here"
             [routerLink]="['/login']"><b> Login
                 here</b></small></div>
+
+</div>
 
 </div>

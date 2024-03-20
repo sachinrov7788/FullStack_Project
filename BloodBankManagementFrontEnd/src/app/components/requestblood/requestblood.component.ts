@@ -12,7 +12,7 @@ export class RequestbloodComponent implements OnInit {
 
     loggedUser = '';
     tempUser = '';
-    request = new BloodRequest('', '', '', '', 0, '', '', '', 0, '');
+    request = new BloodRequest('', '', '', 'O+ve', 1, '', '', 'Male', 0, '');
     msg = '';
 
     constructor(private _router: Router, private donorService: DonorService, private activatedRoute: ActivatedRoute) { }

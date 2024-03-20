@@ -1,34 +1,51 @@
 <div class="sidebar-logo">
         <div class="welcometxt"><b class="title">{{title}}</b></div>
         <input class="form-control" id="searchtxt" type="text" name="bloodGroup" [(ngModel)]="bloodGroup"
-                placeholder="search via bloodGroup..." (ngModelChange)="search()" />
+                placeholder="Search via bloodGroup..." (ngModelChange)="search()" />
         <button class="homebtn" (click)="navigateHome()"><i class="fa fa-home"></i> Home</button>
         <b class="sidebar-text"><i class="fa fa-user"></i> Welcome {{loggedUser}}</b>
         <button class="logoutbtn" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</button>
 </div>
 
-<div class="row">
-        <div *ngFor="let donor of donors " class="col-4 card" id="bloodCards">
-                <a><img *ngIf="donor.gender === 'Male' || donor.gender === 'male'" class="bloodimg"
-                                [src]="'assets/img/male.png'" width="120" height="120"></a>
-                <a><img *ngIf="donor.gender === 'Female' || donor.gender === 'female'" class="bloodimg"
-                                [src]="'assets/img/female.png'" width="120" height="120"></a>
-                <div class="card-block">
-                        <div class="text"><b class="heading">Donor Name : </b><b class="element-1"> 
-                                {{donor.name}}</b> </div>
-                        <div class="text"><b class="heading">Blood Group : </b><b class="element-2"
-                                        > {{donor.bloodGroup}}</b> </div>
-                        <div class="text"><b class="heading">Gender : </b><b class="element-3"
-                                        > {{donor.gender}}</b> </div>
-                        <div class="text"><b class="heading">Contact : </b><b class="element-4"
-                                        > {{donor.mobileNumber}}</b> </div>
-                        <div class="text"><b class="heading">Age : </b><b class="element-5"
-                                        > {{donor.age}} years</b> </div>
-                        <div class="text"><b class="heading">Location : </b><b class="element-6"
-                                        > {{donor.city}}</b> </div>
-                </div>
+<mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+[pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+[pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+[pageIndex]="pageIndex" aria-label="Select page">
+</mat-paginator>         
+
+<div class="container mt-4 ml-3">
+        <div class="row p-4">
+                <ng-container *ngIf="donors && donors.length > 0; else noResults">
+                        <div class="col-lg-6 card mx-4" id="bloodCards" *ngFor="let donor of donors">
+                                <a><img *ngIf="donor.gender === 'Male' || donor.gender === 'male'" class="bloodimg"
+                                                [src]="'assets/img/male.png'" width="120" height="120"></a>
+                                <a><img *ngIf="donor.gender === 'Female' || donor.gender === 'female'" class="bloodimg"
+                                                [src]="'assets/img/female.png'" width="120" height="120"></a>
+                                <div class="card-block">
+                                        <div class="text"><b class="heading">Donor Name : </b><b class="element-1">
+                                                        {{donor.name}}</b> </div>
+                                        <div class="text"><b class="heading">Blood Group : </b><b class="element-2">
+                                                        {{donor.bloodGroup}}</b> </div>
+                                        <div class="text"><b class="heading">Gender : </b><b class="element-3">
+                                                        {{donor.gender}}</b> </div>
+                                        <div class="text"><b class="heading">Contact : </b><b class="element-4">
+                                                        {{donor.mobileNumber}}</b> </div>
+                                        <div class="text"><b class="heading">Age : </b><b class="element-5">
+                                                        {{donor.age}} years</b> </div>
+                                        <div class="text"><b class="heading">Location : </b><b class="element-6">
+                                                        {{donor.city}}</b> </div>
+                                </div>
+                        </div>
+                </ng-container>
+                <ng-template #noResults>
+                        <div class="col-lg-12">
+                                <div class="alert alert-warning" role="alert">
+                                        No results found.
+                                </div>
+                        </div>
+                </ng-template>
         </div>
 </div>
 <div class="donor-footer">
-<app-footer></app-footer>
+        <app-footer></app-footer>
 </div>

@@ -48,7 +48,7 @@ export class RequesthistoryfromuserComponent implements OnInit {
 
   reloadData() {
     this.donorService.getRequestHistoryByEmail(this.loggedUser).subscribe({
-      next: (data: BloodRequest[]) => { // Explicitly type the data as BloodRequest[]
+      next: (data: BloodRequest[]) => { 
         this.requests = data.filter((request: BloodRequest) => request.email === this.loggedUser);
         console.log(this.requests);
       },

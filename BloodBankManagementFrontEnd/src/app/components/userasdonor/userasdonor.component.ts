@@ -13,7 +13,7 @@ export class UserasdonorComponent implements OnInit {
   loggedUser = '';
   tempUser = '';
   msg = '';
-  donor = new Donors('', '', '', 0, '', '', 0, '', '', new Date());
+  donor = new Donors('', '', 'O+ve', 1, '', 'Male', 0, '', '', new Date());
 
   constructor(private _router: Router, private donorService: DonorService) { }
 

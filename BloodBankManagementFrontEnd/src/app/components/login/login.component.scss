@@ -2,6 +2,13 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 
+.title{
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: red
+}
+
 .container {
     max-width: 450px;
     padding: 40px;
@@ -15,6 +22,7 @@
 input {
     border-radius: 12px;
     margin-top: 8px;
+    font-size: 15px;
 }
 
 .remember{
@@ -28,6 +36,7 @@ input {
 .sign-up{
     text-align: center;
     margin-top: 10px; 
+
 }
 
 .admin-forgot-pass{
@@ -40,12 +49,15 @@ input {
     color: navy;
     text-align: center;
     cursor: pointer;
+    font-weight: 500;
 }
 
 #forget-pass{
     color: navy;
-    margin-left: 35%;
     cursor: pointer;
+    margin-left: 240px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .suggession{

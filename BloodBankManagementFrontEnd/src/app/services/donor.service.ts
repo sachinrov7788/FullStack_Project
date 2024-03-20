@@ -44,7 +44,7 @@ export class DonorService {
   }
 
   public getProfileDetails(loggedUser: string): Observable<any> {
-    return this._http.get<any>(`${this.NAV_URL}/users/` + loggedUser);
+    return this._http.get<any>(`${this.NAV_URL}/users/getUserByEmail/` + loggedUser);
   }
 
   public UpdateUserProfile(user: any): Observable<any> {
@@ -71,8 +71,8 @@ export class DonorService {
     return this._http.get(`${this.NAV_URL}/blood-details/getTotalBloodGroups`);
   }
 
-  public getTotalUnits(): Observable<any> {
-    return this._http.get(`${this.NAV_URL}/blood-details/getTotalUnits`);
+  public  getTotalUnits(): Observable<any> {
+    return this._http.get(`${this.NAV_URL}/blood-details/getTotalBloodGroups`);
   }
 
   public getTotalRequests(): Observable<any> {

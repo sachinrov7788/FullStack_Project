@@ -24,6 +24,8 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [
     {

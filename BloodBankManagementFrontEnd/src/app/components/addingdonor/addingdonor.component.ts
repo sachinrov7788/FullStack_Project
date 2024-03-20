@@ -12,14 +12,13 @@ export class AddingdonorComponent {
 
   loggedUser = '';
   tempUser = '';
-  donor = new Donors('', '', '', 0, '', '', 0, '', '', new Date());
+  donor = new Donors('', '', 'O+ve', 1, '', 'Male', 0, '', '', new Date());
   today: string = '';
 
   constructor(private _service: DonorService, private _router: Router) { }
 
   ngOnInit(): void {
     this.tempUser = sessionStorage.getItem('loggedUser') || '{}';
-    this.tempUser = JSON.parse(this.tempUser);
     if (this.tempUser === 'string') {
       this.tempUser = this.tempUser.substr(1, this.tempUser.length - 2);
     }

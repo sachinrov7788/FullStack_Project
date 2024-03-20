@@ -1,4 +1,7 @@
-<button class="logoutbtn" (click)="navigateHome()"><i class="fa fa-home"></i> Home</button>
+<div class="sidebar-logo">
+    <div class="welcometxt"><b>Admin Dashboard</b></div>
+    <button class="homebtn" (click)="navigateHome()"><i class="fa fa-home"></i> Home</button>
+</div>
 
 <div class="container">
     <h2 class="textual"><i class="fa fa-heart"></i> Add new Donor </h2>
@@ -6,7 +9,7 @@
 
         <div class="form-group">
             <label for="donorname">Donor Name: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter donor name" name="donorname"
+            <input type="text" class="form-control" placeholder="Enter Donor Name" name="donorname"
                 [(ngModel)]="donor.name" required #donorname="ngModel"
                 [class.is-invalid]="donorname.invalid && donorname.touched">
             <small class="text-danger" [class.d-none]="donorname.valid || donorname.untouched"><b>required
@@ -16,9 +19,18 @@
 
         <div class="form-group">
             <label for="bloodgroup">Donor Blood Group: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter blood group" name="bloodgroup"
+            <select type="text" class="form-control" name="bloodgroup"
                 [(ngModel)]="donor.bloodGroup" required #bloodgroup="ngModel"
                 [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched">
+                <option selected>O+ve</option>
+                <option>O-ve</option>
+                <option>A+ve</option>
+                <option>A-ve</option>
+                <option>B+ve</option>
+                <option>B-ve</option>
+                <option>AB+ve</option>
+                <option>AB-ve</option>
+            </select>
             <small class="text-danger" [class.d-none]="bloodgroup.valid || bloodgroup.untouched"><b>required
                     field</b></small>
         </div>
@@ -31,9 +43,6 @@
                 <option>2</option>
                 <option>3</option>
             </select>
-            <!--<input type="number" min="0" max="5" class="form-control" placeholder="units of blood" name="units" [(ngModel)]="donor.units" required 
-            #units="ngModel"
-            [class.is-invalid]="units.invalid && units.touched">-->
             <small class="text-danger" [class.d-none]="units.valid || units.untouched"><b>required field</b></small>
         </div>
         <small class="red-text">Maximum units can be donated is 3
@@ -41,7 +50,7 @@
 
         <div class="form-group">
             <label for="mobile">Donor Mobile Number: <b class="text-danger">*</b></label>
-            <input type="tel" class="form-control" placeholder="enter mobile number" name="mobile"
+            <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="mobile"
                 [(ngModel)]="donor.mobileNumber" required #mobile="ngModel"
                 [class.is-invalid]="mobile.invalid && mobile.touched">
             <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched"><b>required field</b></small>
@@ -55,15 +64,11 @@
                 <option>Female</option>
                 <option>Others</option>
             </select>
-            <!--<input type="text" class="form-control" placeholder="enter donor gender" name="gender" [(ngModel)]="donor.gender" required 
-            #gender="ngModel"
-            [class.is-invalid]="gender.invalid && gender.touched">
-        <small class="text-danger" [class.d-none]="gender.valid || gender.untouched"><b>required field</b></small>-->
         </div>
 
         <div class="form-group">
             <label for="age">Donor Age: <b class="text-danger">*</b></label>
-            <input type="number" min="0" max="65" class="form-control" placeholder="enter donor age" name="age"
+            <input type="number" min="0" max="65" class="form-control" name="age"
                 [(ngModel)]="donor.age" required #age="ngModel" [class.is-invalid]="age.invalid && age.touched">
             <small class="text-danger" [class.d-none]="age.valid || age.untouched"><b>required field</b></small>
         </div>
@@ -72,7 +77,7 @@
 
         <div class="form-group">
             <label for="city">Donor Location: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter city" name="city" [(ngModel)]="donor.city"
+            <input type="text" class="form-control" placeholder="Enter City Name" name="city" [(ngModel)]="donor.city"
                 required #city="ngModel" [class.is-invalid]="city.invalid && city.touched">
             <small class="text-danger" [class.d-none]="city.valid || city.untouched"><b>required field</b></small>
         </div>
@@ -80,7 +85,7 @@
 
         <div class="form-group">
             <label for="address">Donor Address: <b class="text-danger">*</b></label>
-            <input type="text" class="form-control" placeholder="enter donor address" name="address"
+            <input type="text" class="form-control" placeholder="Enter Donor Address" name="address"
                 [(ngModel)]="donor.address" required #address="ngModel"
                 [class.is-invalid]="address.invalid && address.touched">
             <small class="text-danger" [class.d-none]="address.valid || address.untouched"><b>required field</b></small>
@@ -102,4 +107,7 @@
         </div>
         <button [disabled]="addDonorform.form.invalid" type="submit" class="btn registerbtn">Add Donor</button>
     </form>
+</div>
+<div class="addind-donor-footer">
+    <app-footer></app-footer>
 </div>

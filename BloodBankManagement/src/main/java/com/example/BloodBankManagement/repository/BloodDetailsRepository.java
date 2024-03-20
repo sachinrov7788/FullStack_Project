@@ -6,8 +6,5 @@ import com.example.BloodBankManagement.model.BloodDetails;
 
 public interface BloodDetailsRepository extends MongoRepository<BloodDetails, String>{
 
-    BloodDetails findByBloodGroup(String bloodGroup);
-
-    BloodDetails findByEmail(String email);
-    
+    BloodDetails findByBloodGroup(String bloodGroup);    
 }

@@ -35,13 +35,18 @@ public class BloodDetailsServiceImpl implements BloodDetailsService {
     }
 
     @Override
-    public String addBloodDetails(BloodDetails bloodDetails) {
-        BloodDetails bloodDetail = bloodDetailsRepository.findByEmail(bloodDetails.getEmail());
+    public String addBloodDetails(String bloodGroup, int units) {
+        BloodDetails bloodDetail = bloodDetailsRepository.findByBloodGroup(bloodGroup);
         if (bloodDetail != null) {
-            return "Blood Details already found";
+            bloodDetail.setUnits(bloodDetail.getUnits() + units);
+            bloodDetailsRepository.save(bloodDetail);
+        } else {
+            BloodDetails blood = new BloodDetails();
+            blood.setBloodGroup(bloodGroup);
+            blood.setUnits(units);
+            bloodDetailsRepository.save(blood);
         }
-        BloodDetails addedBloodDetails = bloodDetailsRepository.save(bloodDetails);
-        System.out.println("Blood details added successfully: " + addedBloodDetails.getBloodGroup());
+
         return "CREATED";
     }
 
@@ -62,19 +67,19 @@ public class BloodDetailsServiceImpl implements BloodDetailsService {
     }
 
     @Override
-    public int getUnitsByEmail(String email) {
-        BloodDetails bloodDetails = bloodDetailsRepository.findByEmail(email);
-        return bloodDetails.getUnits();
-    }
-
-    @Override
-    public String updateBloodUnits(String email, Integer units) {
-        BloodDetails bloodDetails = bloodDetailsRepository.findByEmail(email);
-        bloodDetails.setUnits(units);
-        bloodDetails.setId(bloodDetails.getId());
-        bloodDetailsRepository.save(bloodDetails);
+    public String updateBloodUnits(String bloodGroup, Integer units) {
+        BloodDetails bloodDetails = bloodDetailsRepository.findByBloodGroup(bloodGroup);
+        if (bloodDetails != null) {
+            bloodDetails.setUnits(bloodDetails.getUnits() + units);
+            bloodDetails.setId(bloodDetails.getId());
+            bloodDetailsRepository.save(bloodDetails);
+        } else {
+            BloodDetails blood = new BloodDetails();
+            blood.setBloodGroup(bloodGroup);
+            blood.setUnits(units);
+            bloodDetailsRepository.save(blood);
+        }
         return "UPDATED";
-
     }
 
     @Override
@@ -86,4 +91,6 @@ public class BloodDetailsServiceImpl implements BloodDetailsService {
         }
         return totalUnits;
     }
+
+
 }

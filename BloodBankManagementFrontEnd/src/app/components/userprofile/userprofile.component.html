@@ -19,8 +19,7 @@
             <div class="text"><b class="heading">Mail ID : </b><b class="element-5">{{profileDetails.email}}</b></div>
             <div class="text"><b class="heading">Age : </b><b class="element-6">{{profileDetails.age}} years</b></div>
             <div class="btndiv" style="align-items: center;"><button class="editbtn" (click)="editProfile()"><i class="fa fa-edit"></i> edit</button></div>
-            <small id="message" *ngIf="msg!=''"><b>{{msg}}</b></small>
-            
+            <small id="message" *ngIf="msg !== ''"><b>{{msg}}</b></small>
         </div>
     </div>
 </div>
@@ -28,12 +27,11 @@
 <div class="container" id="profileform" *ngIf="profileFormVisible">
     <h3 class="textual">Update Profile</h3>
     <form #Updateform="ngForm" (ngSubmit)="updateUserProfile()">
-        <small class="dear-user" *ngIf="temp === false"><b>Dear {{loggedUser}}, update your profile here</b></small>
         <div class="form-group">
             <label for="email">Email : <b class="text-danger">*</b></label>
-            <input type="email" class="form-control" id="email" placeholder="enter email" name="email" [(ngModel)]="user.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="user.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
             <div *ngIf="email.errors && (email.invalid && email.touched)">
-                <small class="text-danger" *ngIf="email.errors['pattern']"><b>Invalid email Id</b></small>
+                <small class="text-danger" *ngIf="email.errors['pattern']"><b>Invalid email address</b></small>
             </div>
         </div>
 
@@ -77,7 +75,7 @@
 
         <div class="form-group">
             <label for="pwd">Password: <b class="text-danger">*</b></label>
-            <input type="password" class="form-control" placeholder="enter password" value="user.password" name="pwd"
+            <input type="password" class="form-control" placeholder="Enter password" value="user.password" name="pwd"
                 [(ngModel)]="user.password" required #password="ngModel"
                 [class.is-invalid]="password.invalid && password.touched">
         </div>

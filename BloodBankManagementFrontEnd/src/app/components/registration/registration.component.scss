@@ -1,19 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 
+.flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
-    max-width: 450px;
-    padding: 40px 40px 25px 40px;
+    max-width: 550px;
+    padding: 40px 40px 40px 40px;
     margin-top: 2%;
+    margin-bottom: 12%;
     border-radius: 10px;
     box-shadow: 5px 5px 35px 8px rgb(147, 158, 147);
     border-top: 8px solid rgb(235, 255, 55);
     background-color: white;
-    margin-bottom: 20px;
+}
+
+.title{
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: red
+}
+
+.login-here{
+    font-weight: 300;
+    
 }
 
 input {
     border-radius: 12px;
     margin-top: 8px;
+    font-size: 15px;
+
 }
 
 .suggestion{
@@ -27,7 +47,6 @@ input {
 
 .acceptance{
     color: gray;
-    
 }
 
 .sign-up{

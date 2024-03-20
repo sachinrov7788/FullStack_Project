@@ -1,10 +1,8 @@
 export class BloodDetails {
-    email: string;
     bloodGroup: string;
     units: number;
 
-    constructor(bloodGroup: string, email: string, units: number) {
-        this.email = email
+    constructor(bloodGroup: string, units: number) {
         this.bloodGroup = bloodGroup;
         this.units = units;
     }

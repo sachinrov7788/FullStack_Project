@@ -11,7 +11,7 @@ import { DonorService } from 'src/app/services/donor.service';
 })
 export class LoginsuccessComponent {
 
-  loggedUser = '';
+  loggedUser: any;
   tempUser = '';
   bloodDetails!: any[];
 

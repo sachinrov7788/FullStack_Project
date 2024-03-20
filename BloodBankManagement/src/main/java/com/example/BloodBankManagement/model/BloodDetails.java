@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class BloodDetails {
     @Id
     private String id;
-    private String email;
     private String bloodGroup;
     private int units;
 }

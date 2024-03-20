@@ -3,6 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from 'src/app/model/Role';
 import { User } from 'src/app/model/User';
 import { DonorService } from 'src/app/services/donor.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-userprofile',
@@ -18,8 +23,10 @@ export class UserprofileComponent implements OnInit {
   user: User = new User('', '', '', '', 0, Role.USER, '', '');
   msg = '';
   profileFormVisible = false;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private donorService: DonorService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private donorService: DonorService, private activatedRoute: ActivatedRoute, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.tempUser = sessionStorage.getItem('loggedUser') || '';
@@ -32,6 +39,12 @@ export class UserprofileComponent implements OnInit {
 
   editProfile(): void {
     this.profileFormVisible = true;
+    this.user.email = this.profileDetails.email;
+    this.user.name = this.profileDetails.name;
+    this.user.bloodGroup = this.profileDetails.bloodGroup;
+    this.user.gender = this.profileDetails.gender;
+    this.user.age = this.profileDetails.age;
+    this.user.mobileNumber = this.profileDetails.mobileNumber;
   }
 
   getProfileDetails(loggedUser: string): void {
@@ -46,16 +59,26 @@ export class UserprofileComponent implements OnInit {
     });
   }
 
+  openSnackBar() {
+    this._snackBar.open('Profile updated Successfully!!', '', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['text-center'],
+      duration: 2 * 1000,
+    });
+  }
+
   updateUserProfile(): void {
     this.donorService.UpdateUserProfile(this.user).subscribe(
       data => {
         console.log("UserProfile Updated successfully");
+        this.openSnackBar();
         this.profileDetails = data;
         this.temp = true;
         this.profileFormVisible = false;
         setTimeout(() => {
           this.router.navigate(['/userdashboard']);
-        }, 6000);
+        }, 4000);
       },
       error => {
         this.msg = "Profile Updation Failed !!!";

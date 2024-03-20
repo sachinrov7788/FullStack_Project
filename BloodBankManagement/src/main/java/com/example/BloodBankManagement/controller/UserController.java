@@ -32,16 +32,16 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @GetMapping("/{email}")
-    // @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<User> getByEmail(@PathVariable String email) {
+    @GetMapping("/getUserByEmail/{email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
         User user = userService.getUserByEmail(email);
-        if (user != null) {
+        if(user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User newUser) {

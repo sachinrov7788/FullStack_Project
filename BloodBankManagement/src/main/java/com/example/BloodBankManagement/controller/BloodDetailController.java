@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,12 +34,6 @@ public class BloodDetailController {
         return new ResponseEntity<>(bloodDetailsList, HttpStatus.OK);
     }
 
-    @GetMapping("/getunitsbyemail/{email}")
-    public ResponseEntity<Integer> getAllUnits(@PathVariable String email) {
-        int units = bloodDetailsService.getUnitsByEmail(email);
-        return new ResponseEntity<>(units, HttpStatus.OK);
-    }
-
     @GetMapping("/getTotalUnits")
     public ResponseEntity<Integer> getTotalBloodUnits() {
         int totalUnits = bloodDetailsService.getAllUnits();
@@ -53,33 +46,11 @@ public class BloodDetailController {
         return new ResponseEntity<>(bloodDetails, HttpStatus.OK);
     }
 
-    @PostMapping
-    // @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<String> addBloodDetails(@RequestBody BloodDetails bloodDetails) {
-        String result = bloodDetailsService.addBloodDetails(bloodDetails);
-        if (result.equals("CREATED")) {
-            return new ResponseEntity<>("Blood Created Successfully", HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>("Blood Already exist", HttpStatus.BAD_REQUEST);
-        }
-    }
-
     @PutMapping("/{bloodGroup}")
     public ResponseEntity<BloodDetails> updateBloodDetails(@PathVariable String bloodGroup,
             @RequestBody BloodDetails bloodDetails) {
         BloodDetails updatedBloodDetails = bloodDetailsService.updateBloodDetails(bloodGroup, bloodDetails);
         return new ResponseEntity<>(updatedBloodDetails, HttpStatus.OK);
-    }
-
-    @PutMapping("/updatebloodunit/{email}/{units}")
-    public ResponseEntity<String> updateBloodUnits(@PathVariable("email") String email,
-            @PathVariable("units") Integer units) {
-        String result = bloodDetailsService.updateBloodUnits(email, units);
-        if (result.equals("UPDATED")) {
-            return new ResponseEntity<>("Blood Unit Updated Successfully", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Blood unit not found", HttpStatus.BAD_REQUEST);
-        }
     }
 
     @DeleteMapping("/{bloodGroup}")

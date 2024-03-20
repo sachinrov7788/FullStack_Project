@@ -47,6 +47,7 @@ export class RequesthistoryComponent implements OnInit {
       next: data => {
         this.responses = data;
         this.hideButtons();
+        this.reloadData();
       },
       error: error => {
         console.error('Error accepting blood request: ', error);
@@ -59,6 +60,7 @@ export class RequesthistoryComponent implements OnInit {
       next: data => {
         this.responses = data;
         this.hideButtons();
+        this.reloadData();
       },
       error: error => {
         console.error('Error rejecting blood request: ', error);

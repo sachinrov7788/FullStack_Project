@@ -60,24 +60,18 @@ export class UserdashboardComponent implements OnInit {
     this.donorService.getTotalBloodGroups().subscribe({
       next: data => {
         this.totalBloodGroups = data;
-        // console.log(data);
-
-        for (let index = 0; index < this.totalBloodGroups.length; index++) {
-          this.totalUnits += this.totalBloodGroups[index].units;
-        }
-        // console.log(this.totalUnits);
-
+        console.log(data);
       },
       error: error => {
         console.error(error);
       }
     });
 
-
     this.donorService.getTotalUnits().subscribe({
       next: data => {
-        this.totalUnits = data;
-        // console.log(data);
+        data.forEach((blood: { units: number; }) => {
+          this.totalUnits += blood.units;
+        });
       },
       error: error => {
         console.error(error);
@@ -85,8 +79,7 @@ export class UserdashboardComponent implements OnInit {
     });
 
     this.donorService.getRequestHistory().subscribe({
-      next: (data: BloodRequest[]) => { // Explicitly type the data as BloodRequest[]
-        // Filter requests based on the logged-in user's email
+      next: (data: BloodRequest[]) => {
         this.bloodRequests = data.filter((request: BloodRequest) => request.email === this.loggedUser);
         console.log(this.bloodRequests);
       },
@@ -96,8 +89,7 @@ export class UserdashboardComponent implements OnInit {
     });
 
     this.donorService.getTotalRequests().subscribe({
-      next: (data: BloodRequest[]) => { // Explicitly type the data as BloodRequest[]
-        // Filter requests based on the logged-in user's email
+      next: (data: BloodRequest[]) => {
         this.bloodRequests = data.filter((request: BloodRequest) => request.email === this.loggedUser);
         console.log(this.bloodRequests);
       },

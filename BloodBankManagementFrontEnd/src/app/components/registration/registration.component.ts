@@ -10,7 +10,7 @@ import { RegisterRequest } from '../../model/RegisterRequest';
 })
 export class RegistrationComponent implements OnInit {
 
-  register = new RegisterRequest('', '', '', '', 0, '', '', '');
+  register = new RegisterRequest('', '', 'O+ve', 'Male', 0, '', '', '');
   msg = '';
 
   constructor(private _service: RegistrationService, private _router: Router) { }

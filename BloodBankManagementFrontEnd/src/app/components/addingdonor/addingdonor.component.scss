@@ -13,20 +13,42 @@
     color: #fff;
 }
 
-.sidebar-text {
-    font-size: small;
-}
-
 .content-container {
     padding-top: 20px;
 }
 
 .sidebar-logo {
-    padding: 10px 15px 10px 30px;
+    padding: 25px 95px 25px 30px;
     font-size: 20px;
     text-align: right;
     background-color: #13534e;
     width: 100%;
+}
+
+.homebtn{
+    border: none;
+    background: transparent;
+    color: white;
+    border-radius: 15px;
+    // margin-left: 5px;
+    position: fixed;
+    padding: 5px 15px 5px 10px;
+    font-size: small;
+    margin-left: 5px;
+    margin-top: -10px;
+}
+
+.welcometxt{
+    margin-top: -8px;
+    float: left;
+    color: whitesmoke;
+}
+
+.homebtn:hover {
+    cursor: pointer;
+    background-color: #23ad9b;
+    padding: 5px 8px 5px 8px;
+    border-radius: 15px;
 }
 
 .sidebar-navigation {
@@ -109,7 +131,8 @@
     box-shadow: 5px 5px 35px 8px rgb(147, 158, 147);
     border-top: 8px solid rgb(23, 78, 78);
     background-color: white;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 input {
@@ -197,4 +220,9 @@ label {
     color: white;
     padding: 7px 8px 7px 8px;
     border-radius: 15px;
+}
+
+.addind-donor-footer{
+    bottom: 0%;
+    width: 100%;
 }

@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.BloodBankManagement.model.Donors;
 import com.example.BloodBankManagement.repository.DonorRepository;
+import com.example.BloodBankManagement.service.BloodDetailsService;
 import com.example.BloodBankManagement.service.DonorService;
 
 @Service
 public class DonorServiceImpl implements DonorService {
 
+    @Autowired
+    private BloodDetailsService bloodDetailsService;
+    
     @Autowired
     private DonorRepository donorRepository;
 
@@ -28,6 +32,7 @@ public class DonorServiceImpl implements DonorService {
     public Donors addDonor(Donors donor) {
         donor.setDate(new Date());
         Donors addedDonor = donorRepository.save(donor);
+        bloodDetailsService.addBloodDetails(donor.getBloodGroup(), donor.getUnits());
         System.out.println("New donor added successfully: "+addedDonor.getName());
         return addedDonor;
     }
@@ -45,7 +50,7 @@ public class DonorServiceImpl implements DonorService {
     public void deleteDonor(String donorId) {
         Donors existingDonor = donorRepository.findByDonorId(donorId);
         donorRepository.delete(existingDonor);
-        System.out.println("Donor deleted sucessfully: " + existingDonor.getName());
+        System.out.println("Donor deleted successfully: " + existingDonor.getName());
     }
 
     public List<Donors> getDonorsByBloodGroup(String bloodGroup) {
