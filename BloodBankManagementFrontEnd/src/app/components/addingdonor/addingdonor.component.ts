@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Donors } from 'src/app/model/Donors';
 import { DonorService } from 'src/app/services/donor.service';
@@ -8,7 +8,7 @@ import { DonorService } from 'src/app/services/donor.service';
   templateUrl: './addingdonor.component.html',
   styleUrls: ['./addingdonor.component.scss']
 })
-export class AddingdonorComponent {
+export class AddingdonorComponent implements OnInit{
 
   loggedUser = '';
   tempUser = '';

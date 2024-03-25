@@ -13,7 +13,7 @@ export class LoginsuccessComponent {
 
   loggedUser: any;
   tempUser = '';
-  bloodDetails!: any[];
+  bloodDetails!: BloodDetails[];
 
   constructor(private _router: Router, private donorService: DonorService, private activatedRouter: ActivatedRoute) { }
 

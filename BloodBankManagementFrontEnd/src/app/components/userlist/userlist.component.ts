@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/model/User';
 import { DonorService } from 'src/app/services/donor.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class UserlistComponent implements OnInit {
 
   loggedUser = '';
   tempUser = '';
-  users: Observable<any[]> | undefined;
+  users: Observable<User[]> | undefined;
   isAdmin = false;
 
   constructor(private _router: Router, private donorService: DonorService, private activatedRoute: ActivatedRoute) { }

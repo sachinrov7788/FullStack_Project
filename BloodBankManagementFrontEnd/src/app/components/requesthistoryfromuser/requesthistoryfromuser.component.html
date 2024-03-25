@@ -42,8 +42,6 @@
                     <td>
                         <div *ngIf="history.status === 'Accepted' && loggedUser !== 'sachinadmin@gmail.com'" class="accepted">
                             Accepted</div>
-                        <div *ngIf="history.status === 'false' && loggedUser !== 'sachinadmin@gmail.com'" class="pending">
-                            Pending</div>
                         <div *ngIf="history.status === 'Rejected' && loggedUser !== 'sachinadmin@gmail.com'" class="rejected">
                             Rejected</div>
                     </td>

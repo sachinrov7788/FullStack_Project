@@ -24,7 +24,7 @@ export class RegistrationService {
           localStorage.setItem('USER', email);
           localStorage.setItem('ROLE', 'ADMIN');
           localStorage.setItem('TOKEN', `Bearer ${data.token}`);
-          console.log(data);
+          // console.log(data);
           return data;
         }
       )

@@ -265,5 +265,24 @@ td {
 .history-footer{
     bottom: 0;
     width: 100%;
-    position: fixed;
+}
+
+.accept-btn{
+    border-radius: 5px;
+    margin-left: 2px;
+    background-color: green;
+}
+
+.reject-btn{
+    border-radius: 5px;
+    margin-left: 2px;
+    background-color: red;
+}
+
+.accept-btn:hover{
+    background-color: rgb(1, 106, 1);
+}
+
+.reject-btn:hover{
+    background-color: rgb(190, 1, 1);
 }

@@ -3,6 +3,8 @@ package com.example.BloodBankManagement.service.impl;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.example.BloodBankManagement.model.Donors;
 import com.example.BloodBankManagement.repository.DonorRepository;
@@ -19,8 +21,8 @@ public class DonorServiceImpl implements DonorService {
     private DonorRepository donorRepository;
 
     @Override
-    public List<Donors> getAllDonors() {
-        return donorRepository.findAll();
+    public Page<Donors> getAllDonors(Pageable pageable) {
+        return donorRepository.findAll(pageable);
     }
 
     @Override

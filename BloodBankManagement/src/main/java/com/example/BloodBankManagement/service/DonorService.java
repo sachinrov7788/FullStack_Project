@@ -4,8 +4,11 @@ import com.example.BloodBankManagement.model.Donors;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 public interface DonorService {
-    List<Donors> getAllDonors() throws ResourceNotFoundException;
+    Page<Donors> getAllDonors(Pageable pageable) throws ResourceNotFoundException;
     Donors getDonorByDonorId(String donorId) throws ResourceNotFoundException;
     Donors addDonor(Donors donor) throws ResourceNotFoundException ;
     Donors updateDonor(String donorId, Donors donor) throws ResourceNotFoundException;

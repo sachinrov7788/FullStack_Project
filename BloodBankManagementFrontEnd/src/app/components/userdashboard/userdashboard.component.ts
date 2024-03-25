@@ -60,7 +60,7 @@ export class UserdashboardComponent implements OnInit {
     this.donorService.getTotalBloodGroups().subscribe({
       next: data => {
         this.totalBloodGroups = data;
-        console.log(data);
+        // console.log(data);
       },
       error: error => {
         console.error(error);
@@ -81,7 +81,7 @@ export class UserdashboardComponent implements OnInit {
     this.donorService.getRequestHistory().subscribe({
       next: (data: BloodRequest[]) => {
         this.bloodRequests = data.filter((request: BloodRequest) => request.email === this.loggedUser);
-        console.log(this.bloodRequests);
+        // console.log(this.bloodRequests);
       },
       error: error => {
         console.error(error);
@@ -91,24 +91,12 @@ export class UserdashboardComponent implements OnInit {
     this.donorService.getTotalRequests().subscribe({
       next: (data: BloodRequest[]) => {
         this.bloodRequests = data.filter((request: BloodRequest) => request.email === this.loggedUser);
-        console.log(this.bloodRequests);
+        // console.log(this.bloodRequests);
       },
       error: error => {
         console.error(error);
       }
     });
-
-    this.donorService.getTotalDonationCount(this.loggedUser).subscribe({
-
-      next: data => {
-        this.donationCount = data;
-        // console.log(this.donationCount);       
-      },
-      error: error => {
-        console.error(error);
-      }
-    });
-
   }
 
   navigateHome() {
